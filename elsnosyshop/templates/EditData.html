@@ -1,0 +1,155 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Client</title>
+    <link rel="stylesheet" href="{% static 'Css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/style.css' %}">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="{% url 'index'%}"><span class="head">EL</span>
+            SNOSY
+            <span class="head">F</span>or
+            <span class="head">O</span>
+            ptics
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'index'%}">Add Client <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ViewClient'%}">View Client</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <!-- <div class="text-center w-75 mx-auto shadow-lg my-5">
+        <h1 class=" text-center fw-bolder w-100 title"> ELSNOSY FOR OPTICS</h1>
+    </div> -->
+
+    <div class="container my-5">
+        <form method="post" action="" class="p-5">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-12 my-2">
+                    <Label for="name" class="text-center my-3">الاسم</Label>
+                    <input type="text" id="name" class="form-control" placeholder="الاسم" name="name"  value="{{client.name}}">
+                    <Label for="phone" class="text-center my-3">التليفون</Label>
+                    <input type="text" id="phone" class="form-control" placeholder="التليفون" name="phone" value="{{client.phone}}">
+                    <Label for="address" class="text-center my-3">العنوان</Label>
+                    <input type="text" id="address" class="form-control" placeholder="العنوان" name="address" value="{{client.address}}">
+                    <Label for="date" class="text-center my-3">التاريخ</Label>
+                    <input type="date" id="date" class="form-control"  placeholder="التاريخ" name="date"  value="{{client.date}}" >
+                    <Label for="doctor" class="text-center my-3">الدكتور</Label>
+                    <input type="text" id="doctor" class="form-control" name="doctor" placeholder="الدكتور"  value="{{client.doctor}}">
+                    <!-- <Label for="type_of_glass" class="text-center my-3">نوع النظارة</Label>
+                    <input type="text" id="type_of_glass" class="form-control" name="type_of_glass"
+                        placeholder="نوع النظارة" value="{{client.type_of_glass}}">
+                    <Label for="type_of_lenses" class="text-center my-3">نوع العدسات</Label>
+                    <input type="text" id="type_of_lenses" class="form-control" name="type_of_lenses" placeholder="نوع العدسات"  value="{{client.type_of_lenses}}">
+                    <Label for="price" class="text-center my-3">السعر </Label>
+                    <input type="number" id="price" class="form-control" name="price" placeholder="السعر"  value="{{client.price}}">
+                    <label for="paidup" class="mb-3">المدفوع</label>
+                    <input type="number" placeholder="المدفوع" name="paid_up" class="form-control mb-3"
+                        placeholder="المدفوع" id="paid_up"  value="{{client.paid_up}}">
+                    <label for="residual" class="mb-3 ">الباقي</label>
+                    <input type="number" name="residual" class="form-control mb-3 " placeholder="الباقي" disabled
+                        placeholder="الباقي من السعر" id="residual" value="{{client.residual}}">
+ -->
+
+
+
+                    <!-- الكشف -->
+                    <div class="row d-flex justify-content-center   kashf">
+                        <div class="text-center my-2">
+                            <h3>Elsnosy</h3>
+                        </div>
+                        <div class="col-md-6    mt-2  ">
+                            <table class="table">
+                                <h2 class="text-center">Right</h2>
+                                <thead>
+                                    <th></th>
+                                    <th>SPH</th>
+                                    <th>CYL</th>
+                                    <th>Axis</th>
+                                </thead>
+                                <tbody>
+                                    <td>
+                                        Distance
+                                    </td>
+                                    <td>
+                                        <input type="text" name="right_sph" id="right_sph" class="w-50  form-control" value="{{client.right_sph}}">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="right_cyl" id="right_cyl" class="w-50 form-control" value="{{client.right_cyl}}">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="right_axis" id="right_axis" class="w-50 form-control" value="{{client.right_axis}}">
+                                    </td>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6 mt-2  ">
+                            <table class="table">
+                                <h2 class="text-center">Left</h2>
+                                <thead>
+                                    <th>SPH</th>
+                                    <th>CYL</th>
+                                    <th>Axis</th>
+                                </thead>
+                                <tbody>
+                                    <td>
+                                        <input type="text" name="left_sph" id="left_sph" class="w-50 form-control" value="{{client.left_sph}}">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="left_cyl" id="left_cyl" class="w-50 form-control" value="{{client.left_cyl}}">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="left_axis" id="left_axis" class="w-50 form-control" value="{{client.left_axis}}">
+                                    </td>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6 mt-2 ">
+                            <table class="table">
+                                <h2 class="text-center">Reading</h2>
+                                <thead class="text-center">
+                                    <th>Addition</th>
+                                </thead>
+                                <tbody class="text-center">
+                                    <td>
+                                        <input type="text" name="addition" id="addition"
+                                            class="w-50 mx-auto form-control" value="{{client.addition}}">
+                                    </td>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <button class="btn btn-info w-100 my-4 fs-3"> Update</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

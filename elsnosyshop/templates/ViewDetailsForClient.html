@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details For Client</title>
+<link rel="stylesheet" href="{% static 'Css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'Css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'Css/style.css' %}">
+<link rel="stylesheet" href="{% static 'fonts/Creattion Demo.otf' %}">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="{% url 'index'%}"><span class="head">EL</span>
+            SNOSY
+            <span class="head">F</span>or
+            <span class="head">O</span>
+            ptics
+        </a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'index'%}">Add Client <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'ViewClient'%}">View Client</a>
+            </li>
+        </ul>
+
+        </div>
+    </nav>
+    <!-- <div class="text-center shadow-lg my-5 container">
+        <div class="">
+
+            <h1 class=" text-center fw-bolder w-100 title"> ELSNOSY FOR OPTICS</h1>
+        </div>
+    </div> -->
+
+    <div class="container my-4">
+        <div class="row p-5">
+            <div class="col-md-9  rounded-5 p-5 text-center text-black">
+           <div class="row">
+               <div class="col-md-6   text-white">
+            <h4>الاسم</h4>
+            <hr>
+            <!-- <h4>التليفون</h4>
+            <hr>
+            <h4>العنوان</h4>
+            <hr> -->
+            <h4>التاريخ</h4>
+            <hr>
+            <h4>الدكتور</h4>
+            <hr>
+            <!-- <hr>
+            <h4>نوع النظارة</h4>
+            <hr>
+            <h4>نوع العدسات</h4>
+            <hr> -->
+            <!-- <h4>السعر</h4>
+            <hr>
+            <h4>المدفوع</h4>
+            <hr>
+            <h4>الباقي</h4>
+            <hr> -->
+           </div>
+               <div class="col-md-6  text-white">
+                <h4>{{client.name}}</h4>
+                <hr>
+                <!-- <h4>{{client.phone}}</h4>
+                
+                <hr>
+
+                <h4>{{client.address}}</h4>
+                
+                <hr> -->
+                <h4>{{client.date}}</h4>
+                <hr>
+                <h4>{{client.doctor}}</h4>
+                <hr>
+                <!-- <hr>
+                <h4>{{client.type_of_glass}}</h4>
+                <hr>
+                <h4>{{client.type_of_lenses}}</h4>
+                
+                <hr> -->
+                <!-- <h4>{{client.price}}</h4>
+                <hr>
+                <h4> {{client.paid_up}} </h4>
+                
+                <hr>
+                <h4> {{client.residual}}</h4>
+               <hr> -->
+               
+               </div>
+           </div>
+        
+                
+                <table class="text-black">
+                    <thead>
+
+                        <tr>
+                            <th>
+                                R-Sph
+                            </th>
+                            <th>
+                                R-Cyl
+                            </th>
+                            <th>
+                                R-Axis
+                            </th>
+                            <th>
+                                L-Sph
+                            </th>
+                            <th>
+                                L-Cyl
+                            </th>
+                            <th>
+                                L-Axis
+                            </th>
+                            <th>
+                                Addition
+                            </th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{client.right_sph}}</td>
+                            <td>
+                                {{client.right_cyl}}
+                            </td>
+                            <td>
+                                {{client.right_axis}}
+                            </td>
+                            <td>
+                                {{client.left_sph}}
+                            </td>
+                            <td>
+                                {{client.left_cyl}}
+                            </td>
+                            <td>
+                                {{client.left_axis}}
+                            </td>
+                            <td>
+                                {{client.addition}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+
+
+                <button class="btn btn-warning my-3" onclick="window.print()">Print</button>
+                <div class="float-end">
+                    <h5 class=" my-5 sign">أ/رجب السنوسي</h5>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+
+            <!-- <div class="col-md-3 p-5 rounded-5 ">
+                <img src="{% static 'img/Untitled-2555.jpg' %}" class="w-100" alt="">
+            </div> -->
+        </div>
+    </div>
+  
+</body>
+
+</html>

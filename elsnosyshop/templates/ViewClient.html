@@ -1,0 +1,142 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View CLient</title>
+    <link rel="stylesheet" href="{% static 'Css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/style.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="{% url 'index'%}"><span class="head">EL</span>
+            SNOSY
+            <span class="head">F</span>or
+            <span class="head">O</span>
+            ptics
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'index'%}">Add Client <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'ViewClient'%}">View Client</a>
+            </li>
+        </ul>
+
+        </div>
+    </nav>
+
+
+
+    <!-- <div class="text-center shadow-lg my-5 container">
+        <h1 class=" text-center fw-bolder w-100 title"> ELSNOSY FOR OPTICS</h1>
+    </div> -->
+    <div class="container my-5">
+        <div class="p-5">
+        <form method="GET" action="{% url 'ViewfilterClient' %}">
+        <label for="q" class="my-3">Search</label>
+        <input type="text" name="q" id="q" value="{{ request.GET.q }}" placeholder="Search by name or Phone" class="form-control">
+        <button type="submit" class="btn btn-warning my-3">Search</button>
+    </form>
+        </div>
+
+    </div>
+
+    <table class="">
+        <thead>
+            <tr>
+                <th scope="col">الاسم</th>
+                <th scope="col">التليفون</th>
+                <th scope="col">العنوان</th>
+                <th scope="col">التاريخ</th>
+                <th scope="col">الدكتور</th>
+                <!-- <th scope="col">نوع النظارة</th>
+                <th scope="col">نوع العدسات</th>
+                <th scope="col">السعر</th>
+                <th scope="col">المدفوع</th>
+                <th scope="col">الباقي</th> -->
+                <th scope="col">R-Sph</th>
+                <th scope="col">R-Cyl</th>
+                <th scope="col">R-Axis</th>
+                <th scope="col">L-Sph</th>
+                <th scope="col">L-Cyl</th>
+                <th scope="col">L-Axis</th>
+                <th scope="col">Addition</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+            <tr>
+                <td data-label="الاسم">
+                    <a class="text-decoration-none text-white" href="{% url 'ViewDetailsForCient' client.id%}">
+                        {{client.name}}
+                    </a>
+                </td>
+                <td data-label="التليفون">{{client.phone}}</td>
+                <td data-label="العنوان">{{client.address}}</td>
+                <td data-label="التاريخ">{{client.date}}</td>
+                <td data-label="الدكتور">{{client.doctor}}</td>
+                <!-- <td data-label="نوع النظارة">{{client.type_of_glass}}</td>
+                <td data-label="نوع العدسات">{{client.type_of_lenses}}</td>
+                <td data-label="السعر ">{{client.price}}</td>
+                <td data-label="المدفوع">{{client.paid_up}}</td>
+                <td data-label="الباقي">{{client.residual}}</td> -->
+                <td data-label="R-Sph">{{client.right_sph}}</td>
+                <td data-label="R-Cyl">{{client.right_cyl}}</td>
+                <td data-label="R-Axis">{{client.right_axis}}</td>
+                <td data-label="L-Sph">{{client.left_sph}}</td>
+                <td data-label="L-Cyl">{{client.left_cyl}}</td>
+                <td data-label="L-Axis">{{client.left_axis}}</td>
+                <td data-label="Addition">{{client.addition}}</td>
+                <td data-label="Delete">
+                    <a href="{% url 'deleteClient' client.id %}">
+                        <i class="fa-solid fa-trash-can text-danger"></i>
+                    </a>
+                </td>
+                <td data-label="Edit">
+                    <a href="{% url 'EditClient' client.id %}">
+                        <i class="fa-solid fa-pen-to-square text-warning"></i>
+                    </a>
+                </td>
+                <td data-label="ViewDetails">
+                    <a href="{% url 'ViewDetailsForCient' client.id %}">
+                        <i class="fa-regular fa-eye"></i>
+                    </a>
+                </td>
+            </tr>
+            
+            
+            
+            {% endfor %}
+            
+            
+
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
